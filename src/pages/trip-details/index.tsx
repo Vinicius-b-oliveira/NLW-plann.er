@@ -6,9 +6,21 @@ import { Guests } from "./guests";
 import { Activities } from "./activities";
 import { DestinationAndDateHeader } from "./destination-and-date-header";
 import { Button } from "../../components/button";
+import { UpdateTripModal } from "./update-trip-modal";
+import { DateRange } from "react-day-picker";
 
 export function TripDetailsPage() {
-    const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false);
+    const [ isCreateActivityModalOpen, setIsCreateActivityModalOpen ] = useState(false);
+    const [ isUpdateTripModalOpen, setIsUpdateTripModalOpen ] = useState(false)
+    const [updatedEventStartAndEndDates, setUpdatedEventStartAndEndDates] = useState<DateRange | undefined>()
+
+    function openUpdateTripModal() {
+        setIsUpdateTripModalOpen(true)
+    }
+
+    function closeUpdateTripModal() {
+        setIsUpdateTripModalOpen(false)
+    }
 
 
     function openCreateActivityModal() {
@@ -21,7 +33,7 @@ export function TripDetailsPage() {
 
     return (
         <div className="max-w-6xl px-6 py-10 mx-auto space-y-8">
-            <DestinationAndDateHeader />
+            <DestinationAndDateHeader openUpdateTripModal={openUpdateTripModal}/>
 
             <main className="flex gap-16 px-4">
                 <div className="flex-1 space-y-6">
@@ -47,6 +59,14 @@ export function TripDetailsPage() {
 
             {isCreateActivityModalOpen && (
                 <CreateActivityModal closeCreateActivityModal={closeCreateActivityModal}/>
+            )}
+
+            {isUpdateTripModalOpen && (
+                <UpdateTripModal 
+                    closeUpdateTripModal={closeUpdateTripModal}
+                    updatedEventStartAndEndDates={updatedEventStartAndEndDates}
+                    setUpdatedEventStartAndEndDates={setUpdatedEventStartAndEndDates}
+                />
             )}
         </div>
     )
