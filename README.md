@@ -1,6 +1,6 @@
 # 👉 NLW Journey - Plann.er 👈
 
-🚀 Bem-vindo ao plann.er ! Meu nome é Vinícius Bueno de Oliveira e este é um projeto que desenvolvi durante a semana do NLW. Esse é o FrontEnd do site em React e TailwindCss, nele além das funcionalidades criadas durante o evento com os professores, eu desenvolvi e implementei muitas outros novas, como modais e requisições para alterar valores no banco de dados.
+🚀 Bem-vindo ao plann.er ! Meu nome é Vinícius Bueno de Oliveira e este é um projeto que desenvolvi durante a semana do NLW. Esse é o FrontEnd do site em React e TailwindCss, nele além das funcionalidades criadas durante o evento com os professores, eu desenvolvi e implementei muitas outras novas, como modais e requisições para alterar valores no banco de dados.
 
 O backend do projeto é necessário para o funcionamento. Você pode acessá-lo [aqui](https://vinicius-b-oliveira.github.io/portfolio/).
 
