@@ -1,15 +1,15 @@
-import { Calendar, Tag, X } from "lucide-react";
+import { Link2, Tag, X } from "lucide-react";
 import { Button } from "../../components/button";
 import { FormEvent } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../lib/axios";
 
 interface CreateLinkModalProps {
-    closeCreateActivityModal: () => void
+    closeCreateLinkModal: () => void
 }
 
 export function CreateLinkModal({
-    closeCreateActivityModal
+    closeCreateLinkModal
 }:CreateLinkModalProps) {
 
     const { tripId } = useParams()
@@ -36,16 +36,16 @@ export function CreateLinkModal({
                 <div className="space-y-2">
                     <div className="flex items-center justify-between">
 
-                        <h2 className="text-lg font-semibold">Cadastrar atividade</h2>
+                        <h2 className="text-lg font-semibold">Cadastrar Link</h2>
 
-                        <button onClick={closeCreateActivityModal}>
+                        <button onClick={closeCreateLinkModal}>
                             <X className="size-5 text-zinc-400" />
                         </button>
 
                     </div>
 
                     <p className="text-sm text-zinc-400">
-                        Todos convidados podem visualizar as atividades.
+                        Todos convidados podem visualizar os links
                     </p> 
                 
                 </div>
@@ -62,7 +62,7 @@ export function CreateLinkModal({
 
                     <div className="flex items-center gap-2">
                         <div className="h-14 flex-1 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
-                            <Calendar className="text-zinc-400 size-5"/>
+                            <Link2 className="text-zinc-400 size-5"/>
                             <input 
                             type="url"
                             name="url"

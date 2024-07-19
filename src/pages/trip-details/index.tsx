@@ -8,10 +8,12 @@ import { DestinationAndDateHeader } from "./destination-and-date-header";
 import { Button } from "../../components/button";
 import { UpdateTripModal } from "./update-trip-modal";
 import { DateRange } from "react-day-picker";
+import { CreateLinkModal } from "./create-link-modal";
 
 export function TripDetailsPage() {
     const [ isCreateActivityModalOpen, setIsCreateActivityModalOpen ] = useState(false);
     const [ isUpdateTripModalOpen, setIsUpdateTripModalOpen ] = useState(false)
+    const [ isCreateLinkModalOpen, setIsCreateLinkModalOpen ] = useState(false)
     const [updatedEventStartAndEndDates, setUpdatedEventStartAndEndDates] = useState<DateRange | undefined>()
 
     function openUpdateTripModal() {
@@ -29,6 +31,14 @@ export function TripDetailsPage() {
 
     function closeCreateActivityModal() {
         setIsCreateActivityModalOpen(false);
+    }
+
+    function openCreateLinkModal() {
+        setIsCreateLinkModalOpen(true);
+    }
+
+    function closeCreateLinkModal() {
+        setIsCreateLinkModalOpen(false);
     }
 
     return (
@@ -49,7 +59,9 @@ export function TripDetailsPage() {
                 </div>
 
                 <div className="w-80 space-y-6">
-                    <ImportantLinks />
+                    <ImportantLinks 
+                        openCreateLinkModal={openCreateLinkModal} 
+                    />
 
                     <div className="w-full h-px bg-zinc-800"/>
 
@@ -66,6 +78,12 @@ export function TripDetailsPage() {
                     closeUpdateTripModal={closeUpdateTripModal}
                     updatedEventStartAndEndDates={updatedEventStartAndEndDates}
                     setUpdatedEventStartAndEndDates={setUpdatedEventStartAndEndDates}
+                />
+            )}
+
+            {isCreateLinkModalOpen && (
+                <CreateLinkModal 
+                    closeCreateLinkModal={closeCreateLinkModal}
                 />
             )}
         </div>
